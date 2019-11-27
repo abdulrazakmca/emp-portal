@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -56,6 +57,14 @@ public class EmployeeRepositoryTest {
 		Iterable<Employee> findAll = employeeRepository.findAll();
 		long count = StreamSupport.stream(findAll.spliterator(), false).count();
 		assertEquals(count, 2);
+	}
+	
+	@After
+	public void after() {
+		employeeRepository.deleteAll();
+		Iterable<Employee> findAll = employeeRepository.findAll();
+		long count = StreamSupport.stream(findAll.spliterator(), false).count();
+		assertEquals(count,0);
 	}
 
 }
