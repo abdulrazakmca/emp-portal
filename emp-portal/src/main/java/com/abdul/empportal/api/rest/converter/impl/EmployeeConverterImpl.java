@@ -15,6 +15,8 @@ public class EmployeeConverterImpl implements EmployeeConverter {
 		createRestEmployee.setLastname(employee.getLastname());
 		createRestEmployee.setGender(employee.getGender());
 		createRestEmployee.setDateofbirth(employee.getDateofbirth());
+		createRestEmployee.setDepartment(employee.getDepartment());
+		createRestEmployee.setId(employee.getId());
 		return createRestEmployee;
 	}
 
@@ -24,6 +26,7 @@ public class EmployeeConverterImpl implements EmployeeConverter {
 		employee.setLastname(restEmployee.getLastname());
 		employee.setGender(restEmployee.getGender());
 		employee.setDateofbirth(restEmployee.getDateofbirth());
+		employee.setDepartment(restEmployee.getDepartment());
 		return employee;
 	}
 

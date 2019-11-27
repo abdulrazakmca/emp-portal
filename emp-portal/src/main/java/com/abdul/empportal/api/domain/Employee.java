@@ -32,6 +32,9 @@ public class Employee {
 
 	@Column(name = "gender")
 	private String gender;
+	
+	@Column(name = "department")
+	private String department;
 
 	public UUID getId() {
 		return id;
@@ -71,6 +74,14 @@ public class Employee {
 
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
 	}
 
 	@Override

@@ -27,6 +27,10 @@ public class RestEmployee extends RestEntity{
 	@Size(min=1, max=7)
 	private String gender;
 
+	@NotNull
+	@Size(min = 1, max = 1000)
+	private String department;
+	
 	public UUID getId() {
 		return id;
 	}
@@ -65,6 +69,14 @@ public class RestEmployee extends RestEntity{
 
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
 	}
 
 }
