@@ -1,11 +1,14 @@
 package com.abdul.empportal.api.rest.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,6 +33,13 @@ public class EmployeeRestController {
 		}
 		RestEmployee createdEmployee = employeeRestService.saveEmployee(restEmployee);
 		return new ResponseEntity<>(createdEmployee, HttpStatus.CREATED);
+	}
+	
+	
+	@GetMapping("/employee-list")
+	public ResponseEntity<List<RestEmployee>> findAllEmployee() {
+	    List<RestEmployee> findAllRestEmployee = employeeRestService.findAllRestEmployee();
+		return new ResponseEntity<List<RestEmployee>>(findAllRestEmployee, HttpStatus.OK) ;
 	}
 
 }

@@ -1,5 +1,8 @@
 package com.abdul.empportal.api.rest.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +25,16 @@ public class EmployeeRestServiceImpl implements EmployeeRestService {
 	public RestEmployee saveEmployee(RestEmployee restEmployee) {
 		Employee convertToEntity = employeeConverter.convertToEntity(restEmployee);
 		return employeeConverter.convertToRest(employeeService.save(convertToEntity));
+	}
+
+	@Override
+	public List<RestEmployee> findAllRestEmployee() {
+		List<RestEmployee> findAllRestEmployee = new ArrayList<RestEmployee>();
+		List<Employee> findAllEmployee = employeeService.findAllEmployee();
+		for(Employee e:findAllEmployee) {
+			findAllRestEmployee.add(employeeConverter.convertToRest(e));
+		}
+		return findAllRestEmployee;
 	}
 
 	
