@@ -5,6 +5,13 @@ Step 1: checkout development branch
 
  git clone -b development https://github.com/abdulrazakmca/emp-portal.git
 
+Step 2: Run scripts
+using postgres - add username/password as in your local installation
+
+create database emp-portal;
+
+check table creation scripts in resource folder.
+
 Step 2: Run below command
  mvn spring-boot:run
 
