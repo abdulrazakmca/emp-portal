@@ -1,0 +1,38 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.com.mcompany.securityoauthjwtapp.configs.SecurityProperties",
+      "name": "security",
+      "type": "com.com.mcompany.securityoauthjwtapp.configs.SecurityProperties"
+    },
+    {
+      "sourceType": "com.com.mcompany.securityoauthjwtapp.configs.SecurityProperties",
+      "name": "security.jwt",
+      "sourceMethod": "getJwt()",
+      "type": "com.com.mcompany.securityoauthjwtapp.configs.SecurityProperties$JwtProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.com.mcompany.securityoauthjwtapp.configs.SecurityProperties$JwtProperties",
+      "name": "security.jwt.key-pair-alias",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.com.mcompany.securityoauthjwtapp.configs.SecurityProperties$JwtProperties",
+      "name": "security.jwt.key-pair-password",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.com.mcompany.securityoauthjwtapp.configs.SecurityProperties$JwtProperties",
+      "name": "security.jwt.key-store",
+      "type": "org.springframework.core.io.Resource"
+    },
+    {
+      "sourceType": "com.com.mcompany.securityoauthjwtapp.configs.SecurityProperties$JwtProperties",
+      "name": "security.jwt.key-store-password",
+      "type": "java.lang.String"
+    }
+  ]
+}
