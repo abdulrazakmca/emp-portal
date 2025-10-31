@@ -13,7 +13,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "employee_registration")
-public class Employee {
+public class Employee extends BaseEntity{
 
 	@Id
 	@GenericGenerator(name = "uuid2", strategy = "uuid2")

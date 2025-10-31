@@ -1,6 +1,7 @@
 package com.abdul.empportal.api.rest.domain;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 import javax.validation.constraints.NotNull;
@@ -8,10 +9,10 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+
 public class RestEmployee extends RestEntity{
 
-	private UUID id;
-
+	
 	@NotNull
 	@Size(min = 1, max = 1000)
 	private String lastname;
@@ -26,15 +27,10 @@ public class RestEmployee extends RestEntity{
 	@NotNull
 	@Size(min=1, max=7)
 	private String gender;
+	
+	private List<RestEmployee> listOfEmployee;
 
-	public UUID getId() {
-		return id;
-	}
-
-	public void setId(UUID id) {
-		this.id = id;
-	}
-
+	
 	public String getLastname() {
 		return lastname;
 	}
@@ -65,6 +61,14 @@ public class RestEmployee extends RestEntity{
 
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+
+	public List<RestEmployee> getListOfEmployee() {
+		return listOfEmployee;
+	}
+
+	public void setListOfEmployee(List<RestEmployee> listOfEmployee) {
+		this.listOfEmployee = listOfEmployee;
 	}
 
 }

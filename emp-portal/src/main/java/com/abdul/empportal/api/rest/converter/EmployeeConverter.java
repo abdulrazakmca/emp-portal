@@ -7,4 +7,5 @@ public interface EmployeeConverter/* extends EntityConverter<Employee, RestEmplo
 
 	public RestEmployee convertToRest(Employee employee);
 	public Employee convertToEntity(RestEmployee restEmployee);
+	public Employee convertToExistingEntity(Employee entity, RestEmployee restEmployee);
 }

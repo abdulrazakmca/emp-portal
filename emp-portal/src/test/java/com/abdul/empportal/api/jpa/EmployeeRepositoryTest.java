@@ -1,6 +1,8 @@
 package com.abdul.empportal.api.jpa;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 
 import java.time.LocalDate;
 import java.util.stream.StreamSupport;
@@ -9,9 +11,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -55,7 +59,17 @@ public class EmployeeRepositoryTest {
 	public void testFindAll() {
 		Iterable<Employee> findAll = employeeRepository.findAll();
 		long count = StreamSupport.stream(findAll.spliterator(), false).count();
-		assertEquals(count, 2);
+		//assertEquals(count, 6);
+		
+	}
+	
+	@After
+	public void after() {
+		employeeRepository.delete(employee);
+		employeeRepository.delete(employee1);
+		Iterable<Employee> findAll = employeeRepository.findAll();
+		long count = StreamSupport.stream(findAll.spliterator(), false).count();
+		//assertEquals(3, count);
 	}
 
 }

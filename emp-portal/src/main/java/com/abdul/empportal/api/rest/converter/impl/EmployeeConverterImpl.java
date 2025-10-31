@@ -11,6 +11,7 @@ public class EmployeeConverterImpl implements EmployeeConverter {
 
 	public RestEmployee convertToRest(Employee employee) {
 		RestEmployee createRestEmployee = createRestEmployee();
+		createRestEmployee.setId(employee.getId());
 		createRestEmployee.setFirstname(employee.getFirstname());
 		createRestEmployee.setLastname(employee.getLastname());
 		createRestEmployee.setGender(employee.getGender());
@@ -26,6 +27,15 @@ public class EmployeeConverterImpl implements EmployeeConverter {
 		employee.setDateofbirth(restEmployee.getDateofbirth());
 		return employee;
 	}
+	
+	@Override
+	public Employee convertToExistingEntity(Employee entity,RestEmployee restEmployee) {
+		entity.setFirstname(restEmployee.getFirstname());
+		entity.setLastname(restEmployee.getLastname());
+		entity.setGender(restEmployee.getGender());
+		entity.setDateofbirth(restEmployee.getDateofbirth());
+		return entity;
+	}
 
 	private RestEmployee createRestEmployee() {
 		return new RestEmployee();
@@ -34,5 +44,7 @@ public class EmployeeConverterImpl implements EmployeeConverter {
 	private Employee createEmployee() {
 		return new Employee();
 	}
+
+
 
 }
